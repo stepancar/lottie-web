@@ -8,6 +8,7 @@ import interfacesProvider from '../utils/expressions/InterfacesProvider';
 import expressionPropertyDecorator from '../utils/expressions/ExpressionPropertyDecorator';
 import expressionTextPropertyDecorator from '../utils/expressions/ExpressionTextPropertyDecorator';
 import CVTransformEffect from '../elements/canvasElements/effects/CVTransformEffect';
+import CVGaussianBlurEffect from '../elements/canvasElements/effects/CVGaussianBlurEffect';
 import { registerEffect } from '../elements/canvasElements/CVEffects';
 
 // Registering expression plugin
@@ -16,5 +17,6 @@ setExpressionInterfaces(interfacesProvider);
 expressionPropertyDecorator();
 expressionTextPropertyDecorator();
 registerEffect(35, CVTransformEffect);
+registerEffect(29, CVGaussianBlurEffect);
 
 export default lottie;

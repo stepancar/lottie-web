@@ -21,11 +21,25 @@ function CVEffects(elem) {
   }
 }
 
-CVEffects.prototype.renderFrame = function (_isFirstFrame) {
+CVEffects.prototype.renderFrame = function (_isFirstFrame, canvasContext) {
   var i;
   var len = this.filters.length;
+  var filterStrings = [];
+
+  // First pass: call renderFrame on all effects to update their filter strings
   for (i = 0; i < len; i += 1) {
     this.filters[i].renderFrame(_isFirstFrame);
+    if (this.filters[i].filterString) {
+      filterStrings.push(this.filters[i].filterString);
+    }
+  }
+
+  if (canvasContext) {
+    if (filterStrings.length > 0) {
+      canvasContext.filter = filterStrings.join(' ');
+    } else {
+      canvasContext.filter = 'none';
+    }
   }
 };
 

@@ -146,6 +146,7 @@ CVBaseElement.prototype = {
     this.globalData.renderer.save(forceRealStack);
     this.globalData.renderer.ctxTransform(this.finalTransform.localMat.props);
     this.globalData.renderer.ctxOpacity(this.finalTransform.localOpacity);
+    this.renderableEffectsManager.renderFrame(this._isFirstFrame, this.canvasContext);
     this.renderInnerContent();
     this.globalData.renderer.restore(forceRealStack);
     this.exitLayer();

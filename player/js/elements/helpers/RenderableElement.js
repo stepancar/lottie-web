@@ -63,7 +63,7 @@ RenderableElement.prototype = {
     var i;
     var len = this.renderableComponents.length;
     for (i = 0; i < len; i += 1) {
-      this.renderableComponents[i].renderFrame(this._isFirstFrame);
+      this.renderableComponents[i].renderFrame(this._isFirstFrame, this.canvasContext);
     }
     /* this.maskManager.renderFrame(this.finalTransform.mat);
         this.renderableEffectsManager.renderFrame(this._isFirstFrame); */
