@@ -1,7 +1,8 @@
 import assetManager from '../../utils/helpers/assetManager';
 import getBlendMode from '../../utils/helpers/blendModes';
 import Matrix from '../../3rd_party/transformation-matrix';
-import CVEffects from './CVEffects';
+// import CVEffects from './CVEffects';
+import CVSVGEffects from './CVSVGEffects';
 import CVMaskElement from './CVMaskElement';
 import effectTypes from '../../utils/helpers/effectTypes';
 
@@ -37,7 +38,7 @@ CVBaseElement.prototype = {
     }
     this.canvasContext = this.globalData.canvasContext;
     this.transformCanvas = this.globalData.transformCanvas;
-    this.renderableEffectsManager = new CVEffects(this);
+    this.renderableEffectsManager = new CVSVGEffects(this);
     this.searchEffectTransforms();
   },
   createContent: function () {},
@@ -146,7 +147,7 @@ CVBaseElement.prototype = {
     this.globalData.renderer.save(forceRealStack);
     this.globalData.renderer.ctxTransform(this.finalTransform.localMat.props);
     this.globalData.renderer.ctxOpacity(this.finalTransform.localOpacity);
-    this.renderableEffectsManager.renderFrame(this._isFirstFrame, this.canvasContext);
+    this.renderableEffectsManager.renderFrame(this._isFirstFrame);
     this.renderInnerContent();
     this.globalData.renderer.restore(forceRealStack);
     this.exitLayer();

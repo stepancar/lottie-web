@@ -33,6 +33,8 @@ import SVGGaussianBlurEffect from '../elements/svgElements/effects/SVGGaussianBl
 import SVGTransformEffect from '../elements/svgElements/effects/SVGTransformEffect';
 import CVTransformEffect from '../elements/canvasElements/effects/CVTransformEffect';
 import { registerEffect as canvasRegisterEffect } from '../elements/canvasElements/CVEffects';
+import { registerEffect as canvasRegisterSvgEffect } from '../elements/canvasElements/CVSVGEffects';
+import CVGaussianBlurEffect from '../elements/canvasElements/effects/CVGaussianBlurEffect';
 
 // Registering renderers
 registerRenderer('canvas', CanvasRenderer);
@@ -64,5 +66,16 @@ registerEffect(28, SVGMatte3Effect, false);
 registerEffect(29, SVGGaussianBlurEffect, true);
 registerEffect(35, SVGTransformEffect, false);
 canvasRegisterEffect(35, CVTransformEffect);
+
+canvasRegisterEffect(29, CVGaussianBlurEffect);
+
+canvasRegisterSvgEffect(20, SVGTintFilter, true);
+canvasRegisterSvgEffect(21, SVGFillFilter, true);
+canvasRegisterSvgEffect(22, SVGStrokeEffect, false);
+canvasRegisterSvgEffect(23, SVGTritoneFilter, true);
+canvasRegisterSvgEffect(24, SVGProLevelsFilter, true);
+canvasRegisterSvgEffect(25, SVGDropShadowEffect, true);
+canvasRegisterSvgEffect(28, SVGMatte3Effect, false);
+canvasRegisterSvgEffect(29, SVGGaussianBlurEffect, true);
 
 export default lottie;

@@ -567,7 +567,7 @@ function wrapScriptWithModule(code, build) {
 	return new Promise((resolve, reject)=>{
 		try {
 			// Wrapping with module
-			let moduleFileName = (build =='canvas_worker' || build =='lottie_worker') ? 'module_worker' : 'module';
+			let moduleFileName = (build =='canvas_worker' || build =='lottie_worker') ? 'main' : 'module';
 			let wrappedCode = fs.readFileSync(`${rootFolder}js/${moduleFileName}.js`, "utf8");
 			wrappedCode = wrappedCode.replace('/* <%= contents %> */',code);
 			wrappedCode = wrappedCode.replace('[[BM_VERSION]]',bm_version);

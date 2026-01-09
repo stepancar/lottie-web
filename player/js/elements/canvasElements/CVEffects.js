@@ -1,8 +1,17 @@
+// import {
+//   createElementID,
+// } from '../../utils/common';
+
+// import filtersFactory from '../../utils/filters';
+// import {} from '../svgElements/SVGEffects';
+
 var registeredEffects = {};
 
 function CVEffects(elem) {
   var i;
   var len = elem.data.ef ? elem.data.ef.length : 0;
+  // var filId = createElementID();
+  // var fil = filtersFactory.createFilter(filId, true);
   this.filters = [];
   var filterManager;
   for (i = 0; i < len; i += 1) {
@@ -19,9 +28,10 @@ function CVEffects(elem) {
   if (this.filters.length) {
     elem.addRenderableComponent(this);
   }
+  this.globalData = elem.globalData;
 }
 
-CVEffects.prototype.renderFrame = function (_isFirstFrame, canvasContext) {
+CVEffects.prototype.renderFrame = function (_isFirstFrame) {
   var i;
   var len = this.filters.length;
   var filterStrings = [];
@@ -33,6 +43,8 @@ CVEffects.prototype.renderFrame = function (_isFirstFrame, canvasContext) {
       filterStrings.push(this.filters[i].filterString);
     }
   }
+
+  const canvasContext = this.globalData.canvasContext;
 
   if (canvasContext) {
     if (filterStrings.length > 0) {

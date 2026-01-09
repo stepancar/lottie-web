@@ -12,10 +12,10 @@
             height: 100%;
         }
 
-        #lottie{
+        .lottie {
             background-color:#fff;
-            width:100%;
-            height:100%;
+            height: 1080px;
+            width: 1920px;
             display:block;
             overflow: hidden;
             transform: translate3d(0,0,0);
@@ -24,12 +24,13 @@
         }
 
     </style>
-    <script src="/lottie.min.js" ></script>
+    <script src="../build/player/lottie.js" ></script>
 
 
 </head>
 <body>
-<div id="lottie"></div>
+<div id="lottie" class="lottie"></div>
+<div id="lottie2" class="lottie"></div>
 <script>
     const buildRenderSettings = (searchParams) => {
         const defaultValues = {
@@ -42,6 +43,20 @@
 
         return defaultValues;
     };
+    // const path = 'https://storage.googleapis.com/lumen5-prod-lottie/Magnifique/Text%2001/Landscape/test2.json';
+    const path = 'https://storage.googleapis.com/lumen5-prod-lottie/Foresight/Foresight-Title4-land.json';
+    lottie.loadAnimation({
+        container: document.getElementById('lottie'),
+        path,
+        renderer: 'svg',
+    });
+    const animationItem2 = lottie.loadAnimation({
+        container: document.getElementById('lottie2'),
+        path,
+        renderer: 'canvas',
+        dpr: 2
+    });
+    debugger
 </script>
 <script>
     const submitAndWaitForResponse = (currentFrame, isLast) => (
