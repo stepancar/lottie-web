@@ -1,12 +1,14 @@
 function CVGaussianBlurEffect(effectsManager, elem) {
   this.filterManager = effectsManager;
   this.elem = elem;
+  this.globalData = elem.globalData;
 }
 
 CVGaussianBlurEffect.prototype.renderFrame = function () {
+  var scale = this.globalData.transformCanvas.sx;
   // Empirical value, matching AE's blur appearance.
   var kBlurrinessToSigma = 0.3;
-  var sigma = this.filterManager.effectElements[0].p.v * kBlurrinessToSigma;
+  var sigma = this.filterManager.effectElements[0].p.v * kBlurrinessToSigma * scale;
 
   // Dimensions mapping:
   //

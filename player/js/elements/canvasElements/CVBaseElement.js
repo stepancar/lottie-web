@@ -1,8 +1,8 @@
 import assetManager from '../../utils/helpers/assetManager';
 import getBlendMode from '../../utils/helpers/blendModes';
 import Matrix from '../../3rd_party/transformation-matrix';
-// import CVEffects from './CVEffects';
-import CVSVGEffects from './CVSVGEffects';
+import CVEffects from './CVEffects';
+// import CVSVGEffects from './CVSVGEffects';
 import CVMaskElement from './CVMaskElement';
 import effectTypes from '../../utils/helpers/effectTypes';
 
@@ -38,7 +38,7 @@ CVBaseElement.prototype = {
     }
     this.canvasContext = this.globalData.canvasContext;
     this.transformCanvas = this.globalData.transformCanvas;
-    this.renderableEffectsManager = new CVSVGEffects(this);
+    this.renderableEffectsManager = new CVEffects(this);
     this.searchEffectTransforms();
   },
   createContent: function () {},
